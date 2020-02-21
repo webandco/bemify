@@ -23,13 +23,13 @@ $combined-state-selectors: true !default;
 $combined-modifier-selectors: false !default;
 
 // .block[separator]element:
-$element-separator:        "__" !default;
+$element-separator:        '__' !default;
 
 // .block[separator]modifier:
-$modifier-separator:       "--" !default;
+$modifier-separator:       '--' !default;
 
 // The default prefix for state modifier selectors, will be combined with $modifier-separator:
-$state-prefix:             "is" !default;
+$state-prefix:             'is' !default;
 
 // The default prefix for section selectors, will be combined with the given $name
 $section-prefix:           'section' !default;
@@ -65,8 +65,7 @@ $section-prefix:           'section' !default;
       }
     }
 
-  }
-  @else {
+  } @else {
     @at-root {
       &#{$modifier-separator}#{$name} {
         @content;
@@ -83,8 +82,7 @@ $section-prefix:           'section' !default;
         @content;
       }
     }
-  }
-  @else {
+  } @else {
     @at-root {
       &#{$modifier-separator}#{$prefix}-#{$state} {
         @content;
