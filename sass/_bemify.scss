@@ -16,6 +16,12 @@
 //    .block__element--is-active {}
 $combined-state-selectors: true !default;
 
+// Output combined modifier selectors like:
+//    .block__element.block__element--modifier {}
+// Set to false to output single, non-combined modifier class:
+//    .block__element--modifier {}
+$combined-modifier-selectors: false !default;
+
 // .block[separator]element:
 $element-separator:        "__" !default;
 
@@ -48,9 +54,21 @@ $state-prefix:             "is" !default;
 
 
 @mixin modifier($name) {
-  @at-root {
-    &#{$modifier-separator}#{$name} {
-      @content;
+  @if $combined-modifier-selectors == true {
+    @at-root {
+      $self: &;
+
+      #{$self}#{$self}#{$modifier-separator}#{$name} {
+        @content;
+      }
+    }
+
+  }
+  @else {
+    @at-root {
+      &#{$modifier-separator}#{$name} {
+        @content;
+      }
     }
   }
 }
