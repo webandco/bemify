@@ -31,6 +31,8 @@ $modifier-separator:       "--" !default;
 // The default prefix for state modifier selectors, will be combined with $modifier-separator:
 $state-prefix:             "is" !default;
 
+// The default prefix for section selectors, will be combined with the given $name
+$section-prefix:           'section' !default;
 
 
 
@@ -92,6 +94,11 @@ $state-prefix:             "is" !default;
 }
 
 
+@mixin section($name) {
+  @include block(#{$section-prefix}-#{$name}) {
+    @content;
+  }
+}
 
 
 // ALIASES
